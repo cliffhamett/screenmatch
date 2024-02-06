@@ -1,6 +1,5 @@
 package br.com.alura.screenmatch.model;
 
-import br.com.alura.screenmatch.repository.SerieRepository;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -8,7 +7,7 @@ import java.time.format.DateTimeParseException;
 
 @Entity
 @Table(name = "episodios")
-public class Episodio {
+public class EpisodioModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -20,10 +19,10 @@ public class Episodio {
     @ManyToOne
     private SerieModel serie;
 
-    public Episodio() {
+    public EpisodioModel() {
     }
 
-    public Episodio(Integer numeroTemporada, DadosEpisodio dadosEpisodio) {
+    public EpisodioModel(Integer numeroTemporada, DadosEpisodio dadosEpisodio) {
         this.temporada = numeroTemporada;
         this.titulo = dadosEpisodio.titulo();
         this.numeroEpisodio = dadosEpisodio.numero();
